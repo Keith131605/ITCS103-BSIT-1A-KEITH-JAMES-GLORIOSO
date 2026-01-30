@@ -3,20 +3,27 @@ length = len(w)
 
 l = []
 
-for i in range(1,7):
-    num = eval(input(f"Enter a Number {i}:"))
-
+for i in range(length):
+    num = eval(input(f"Enter a Number {i + 1}:"))
     l.append(num)
-apple = sum(l)
-banana = len(l)
-car = apple/banana
+
+def average(num):
+    return sum(num) / len(num)
+
+def compare(length, average, w):
+    if length > average:
+        result = "greater than"
+    elif length < average:
+        result = "less than"
+    else:
+        result = "equal to"
+
+    print(f"The length of the word '{w}' is {result} the average.")
+
+average = average(l)
 
 print(l)
 print("the length of the word is:",length)
-print("the avarage of the number is",car)
-if apple > length:
-    print("The length of the word",w,"is greater than the avarage.")
-elif apple < length:
-    print("The length of the word",w,"is less than the avarage.")
-else:
-    print("The length of the word",w,"is equal than the avarage.")
+print("the avarage of the number is",average)
+
+compare(length, average, w)
